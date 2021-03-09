@@ -47,7 +47,8 @@
     "translations": "npm run get-translations && xm-ngx ext-i18n",
     "report:bundle": "webpack-bundle-analyzer dist/stats.json",
     "get-version": "printf $npm_package_version",
-    "postinstall": "node ./scripts/build-packages.js && ngcc --properties esm5 browser module main"
+    "postinstall": "node ./scripts/build-packages.js && ngcc --properties esm5 browser module main",
+    "sonar": "sonar-scanner"
   },
   "dependencies": {
     "@agm/core": "1.1.0",
