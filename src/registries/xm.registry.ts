@@ -172,6 +172,10 @@ export const XM_ELEMENTS: XmDynamicEntries = [
         loadChildren: () => import('@xm-ngx/components/number-control').then(m => m.XmNumberControlModule),
     },
     {
+        selector: '@xm-ngx/components/numbers-range-control',
+        loadChildren: () => import('@xm-ngx/components/numbers-range-control').then(m => m.NumbersRangeControlModule),
+    },
+    {
         selector: '@xm-ngx/components/dynamic-list-widget',
         loadChildren: () => import('@xm-ngx/components/dynamic/xm-dynamic-list.module').then(m => m.XmDynamicListModule),
     },
