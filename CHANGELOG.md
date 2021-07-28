@@ -41,4 +41,5 @@ xm-navbar-toggle to xm-navbar-toggle-widget
 
 ```text
 Use `@xm-ngx/dashboard` to import from /packages/dashboard
+Use `@xm-ngx/core/permission` to import from /packages/core/permission
 ```
