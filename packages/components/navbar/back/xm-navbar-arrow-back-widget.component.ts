@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { XmSessionService } from '@xm-ngx/core';
 import { takeUntilOnDestroyDestroy } from '@xm-ngx/shared/operators';
 import { Observable } from 'rxjs';
@@ -13,9 +13,9 @@ import { Observable } from 'rxjs';
                 mat-icon-button>
             <mat-icon>arrow_back</mat-icon>
         </button>
-    `
+    `,
 })
-export class XmNavbarArrowBackWidget implements OnInit {
+export class XmNavbarArrowBackWidget implements OnInit, OnDestroy {
     public isSessionActive$: Observable<boolean> = this.xmSessionService.isActive();
 
     private previousPath: string;

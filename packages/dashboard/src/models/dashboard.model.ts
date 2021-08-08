@@ -5,6 +5,7 @@ import { Translate } from '@xm-ngx/translation';
 import { DashboardWidget } from './dashboard-widget.model';
 
 export interface DashboardConfig {
+    selector?: string;
     slug?: string;
     orderIndex?: number;
     condition?: JavascriptCode;
@@ -40,7 +41,7 @@ export interface DashboardLayoutLayout extends XmLayout {
 
 export interface DashboardLayout {
     class?: string;
-    layout?: DashboardLayoutLayout[];
+    layout?: DashboardLayoutLayout | DashboardLayoutLayout[];
     /** @deprecated use layout instead */
     grid?: DashboardLayoutLayout[];
 }

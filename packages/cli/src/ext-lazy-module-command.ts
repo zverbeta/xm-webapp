@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import { Command } from './command';
 import { getDirectories } from './fs-utils';
 import fs from 'fs';
+import { ignoreChangedFile } from './git-utils';
 
 export class ExtLazyModuleCommand implements Command {
 
@@ -10,10 +11,10 @@ export class ExtLazyModuleCommand implements Command {
         'src/app/ext/*',
     ];
 
-    public template = (selector: string, file: string, module: string) => `    {
-        selector: '${selector}',
-        loadChildren: () => import('${file}').then(m => m.${module}),
-    },
+    public template = (selector: string, file: string, module: string): string => `            {
+                selector: '${selector}',
+                loadChildren: () => import('${file}').then(m => m.${module}),
+            },
 `;
 
     public getAllDirectories(): string[] {
@@ -27,10 +28,12 @@ export class ExtLazyModuleCommand implements Command {
 
     public execute(): void {
         const moduleSource = String(fs.readFileSync('src/app/xm.module.ts'));
-        const matcher = /(#regionstart dynamic-extension-modules\s)([\s\S]*)(\/\/ #regionend dynamic-extension-modules)/;
+        const matcher = /(#regionstart dynamic-extension-modules\s)([\s\S]*)( {12}\/\/ #regionend dynamic-extension-modules)/;
         const lazyModules = this.updateAngularJsonLazyModules();
         const newSource = moduleSource.replace(matcher, '$1' + lazyModules + '$3');
-        fs.writeFileSync('src/app/xm.module.ts', newSource);
+        const moduleFileUrl = 'src/app/xm.module.ts';
+        fs.writeFileSync(moduleFileUrl, newSource);
+        ignoreChangedFile(moduleFileUrl);
     }
 
     public updateAngularJsonLazyModules(): string {

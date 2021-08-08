@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { XmLinkButtonComponent } from './xm-link-button.component';
-import { XmTranslationTestingModule } from '@xm-ngx/translation';
+import { XmTranslationTestingModule } from '@xm-ngx/translation/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MatFabWidget } from '@xm-ngx/components/mat-fab/mat-fab-widget.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('XmLinkButtonComponent', () => {
@@ -14,7 +13,7 @@ describe('XmLinkButtonComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [XmTranslationTestingModule, HttpClientTestingModule, RouterTestingModule],
-            declarations: [MatFabWidget],
+            declarations: [XmLinkButtonComponent],
             schemas: [NO_ERRORS_SCHEMA],
         })
             .compileComponents();

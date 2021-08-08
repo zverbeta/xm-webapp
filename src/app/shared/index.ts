@@ -11,8 +11,8 @@ export * from './auth/has-any-authority.directive';
 export * from './language/i18n-jsf.pipe';
 export * from './language/i18n-name.pipe';
 export * from '../../../packages/translation/src/language.constants';
-export * from '../../../packages/translation/src/language.helper';
-export * from '../../../packages/translation/src/modules-language.helper';
+export * from '../../../packages/translation/src/services/language.helper';
+export * from '../../../packages/translation/src/services/modules-language.helper';
 export * from './language/find-language-from-key.pipe';
 export * from './login/login.component';
 export * from './auth/login.service';
@@ -35,8 +35,7 @@ export * from './role/role.service';
 export * from './idp/idp.component';
 
 export * from './privilege/privilege.service';
-export * from './privilege/privilege.directive';
-export * from './privilege/xmPrivilege.directive';
+export { XmPermittedDirective } from './privilege/xm-permitted.directive';
 
 export * from './g-map/xmGMapApiInit.directive';
 

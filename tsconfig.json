@@ -1,6 +1,8 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": false,
+    "strict": false,
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "baseUrl": "./",
@@ -8,9 +10,8 @@
     "declaration": true,
     "downlevelIteration": true,
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "target": "es2017",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -31,7 +32,7 @@
       "@xm-ngx/core/global-error-handler": ["packages/core/global-error-handler"],
       "@xm-ngx/core/permission": ["src/app/shared/privilege"],
       "@xm-ngx/core/permission/testing": ["packages/core/permission/testing"],
-      "@xm-ngx/core/theme": ["packages/theme/public_api"],
+      "@xm-ngx/core/theme": ["packages/core/theme"],
       "@xm-ngx/core/environment": ["src/environments"],
       "@xm-ngx/ext/*": ["src/app/ext/*"],
       "@xm-ngx/alert": ["packages/alert"],
@@ -46,11 +47,12 @@
       "@xm-ngx/shared/interfaces": ["packages/shared/interfaces"],
       "@xm-ngx/shared/operators": ["packages/shared/operators"],
       "@xm-ngx/translation": ["packages/translation"],
+      "@xm-ngx/translation/testing": ["packages/translation/testing"],
       "@xm-ngx/entity": ["src/app/xm-entity/shared"],
       "@xm-ngx/account/*": ["packages/account/src/*"],
       "@xm-ngx/entity/*": ["src/app/xm-entity/*"],
       "@xm-ngx/dynamic": ["packages/dynamic"],
-      "@xm-ngx/dynamic/*": ["packages/dynamic/*"],
+      "@xm-ngx/dynamic/route": ["packages/dynamic/route"],
       "@xm-ngx/dashboard": ["packages/dashboard/src"],
       "@xm-ngx/dashboard/testing": ["packages/dashboard/testing"],
       "@xm-ngx/xm-balance": ["src/app/xm-balance"],
@@ -58,7 +60,7 @@
 
     },
     "inlineSources": true,
-    "module": "esnext",
+    "module": "es2020",
     "stripInternal": false,
     "noUnusedLocals": true,
     "noImplicitThis": true,
